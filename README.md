@@ -1,7 +1,7 @@
 How to run 
 
-composer install
-npm install && npm run dev
-change .env.example to .env ( add change db )
-php artisan key:generate
-php artisan serve
+composer install </br>
+npm install && npm run dev </br>
+change .env.example to .env ( add change db ) </br>
+php artisan key:generate </br>
+php artisan serve </br>
