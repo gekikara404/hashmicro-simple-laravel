@@ -12,6 +12,7 @@
     </div>
 @endif
 <a href="{{ route('posts.create') }}"><button class="btn-green" style="margin-bottom:10px; width:100px;">Create</button></a>
+<a href="{{ route('data') }}"><button class="btn-green" style="margin-bottom:10px; width:100px;">Input User</button></a>
 <table style="width:100%">
     <thead>
         <tr>

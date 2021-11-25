@@ -21,7 +21,8 @@ Route::fallback(function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/data', [App\Http\Controllers\PostController::class, 'data'])->name('data');
+Route::post('/data/update', [App\Http\Controllers\PostController::class, 'dataPost']);
 
 Route::resource('posts', PostController::class)->middleware('auth');
 

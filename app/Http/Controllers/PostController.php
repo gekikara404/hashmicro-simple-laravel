@@ -25,6 +25,51 @@ class PostController extends Controller
         return view('post.index', ['posts' => $posts]);
     }
 
+    public function data()
+    {
+        return view('post.data');
+    }
+
+    public function dataPost(Request $request)
+    {
+        $input = $request->all();
+        function check($val1, $val2){
+            $input1 = strtolower($val1);
+            $input2 = strtolower($val2);
+        
+            $input1Arr = str_split($input1);
+            $input2Arr = str_split($input2);
+        
+            $objArr = [];
+        
+            foreach($input1Arr as $key) {
+                $objArr[$key] = 0;
+            }
+        
+            foreach ($input1Arr as $key => $value) {
+                if (in_array($value, $input2Arr)) {
+                    $objArr[$value] += 1;
+                }
+            }
+        
+            $res = 0;
+            foreach($objArr as $key => $value){
+                if($value > 0){
+                    $res += $value;
+                }
+            }
+        
+            $len = strlen($val1);
+            $percent = ($res / $len) * 100;
+            
+            return "hasil dari {$res}/{$len} karakter {$val1} = {$percent}%";
+        }
+        
+        $response = check($input['text1'], $input['text2']);
+
+        return back()->with('success', $response);
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
